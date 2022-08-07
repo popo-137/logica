@@ -1,16 +1,16 @@
-import {CONTENT_ROUTE, MAIN_ROUTE} from "./consts";
 import Content from "./pages/Content";
 import Home from "./pages/Home";
 
-export const publicRoutes = [
+export const publicRoutes = (store) => {
+
+    return ([
 
     {
-        path: MAIN_ROUTE,
-        Component: Home
+        path: '/',
+        render: (props) => (<Home  {...props} store ={ store}/>),
     },
-
     {
-        path: CONTENT_ROUTE,
-        Component: Content
+        path: '/content',
+        render: (props) => (<Content  {...props} store ={ store}/>)
     }
-]
+])}
